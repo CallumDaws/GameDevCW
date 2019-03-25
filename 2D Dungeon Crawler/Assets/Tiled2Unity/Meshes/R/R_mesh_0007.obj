@@ -1,0 +1,41 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'R_mesh_0007.obj'
+
+# Vertices (Count = 16)
+v -34 -12 0
+v -36 -12 0
+v -36 -10 0
+v -34 -10 0
+v -34 -14 0
+v -36 -14 0
+v -36 -12 0
+v -34 -12 0
+v -34 -16 0
+v -36 -16 0
+v -36 -14 0
+v -34 -14 0
+v -34 -18 0
+v -36 -18 0
+v -36 -16 0
+v -34 -16 0
+
+# Texture cooridinates (Count = 6)
+vt 0.375 0.875
+vt 0.5 0.875
+vt 0.5 0.90625
+vt 0.375 0.90625
+vt 0.375 0.84375
+vt 0.5 0.84375
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g R_mesh_0007
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+f 5/5/1 6/6/1 7/2/1 8/1/1
+f 9/1/1 10/2/1 11/3/1 12/4/1
+f 13/5/1 14/6/1 15/2/1 16/1/1
+
