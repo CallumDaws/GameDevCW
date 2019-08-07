@@ -31,6 +31,7 @@ public class Bat : Enemy
         {
             if (enemyState == EnemyState.idle || enemyState == EnemyState.walk)
             {
+                if(name == "Bat") 
                 anim.SetBool("attacking", true);
                 Vector3 temp = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                 changeAnimation(temp - transform.position);
@@ -39,15 +40,18 @@ public class Bat : Enemy
             }
             else
             {
-                anim.SetBool("attacking", false);
+                if (name == "Bat")
+                    anim.SetBool("attacking", false);
             }
         }
     }
 
     public void setAnimationFloat(Vector2 setVector)
     {
-        anim.SetFloat("moveX", setVector.x);
-        anim.SetFloat("moveY", setVector.y);
+        if (name == "Bat")
+            anim.SetFloat("moveX", setVector.x);
+        if (name == "Bat")
+            anim.SetFloat("moveY", setVector.y);
     }
 
     public void changeAnimation(Vector2 direction)

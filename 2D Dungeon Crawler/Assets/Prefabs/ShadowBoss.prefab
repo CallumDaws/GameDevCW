@@ -99,11 +99,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyState: 0
   health: 100
-  enemyName: Shadow Lord
+  enemyName: Boss
   attackDamage: 1
   speed: 2
   anima: {fileID: 8942811895260004076}
   lootTable: {fileID: 0}
+  doorway: {fileID: 5884878984111242210, guid: 9d2b977052fe3c94e98a7f218af70f47, type: 3}
   myRigidbody: {fileID: 0}
   target: {fileID: 0}
   chaseRadius: 10

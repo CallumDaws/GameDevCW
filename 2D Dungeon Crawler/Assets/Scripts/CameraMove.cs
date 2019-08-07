@@ -13,7 +13,7 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = FindObjectOfType<Player>().transform;
     }
 
     // Update is called once per frame

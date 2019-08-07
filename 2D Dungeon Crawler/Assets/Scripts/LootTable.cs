@@ -7,6 +7,7 @@ public class LootTable : MonoBehaviour
 {
 
     public Loot[] loots;
+    public Loot loot;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,10 @@ public class LootTable : MonoBehaviour
             prob += loots[i].chance;
             if(currentProb <= prob)
             {
-                return loots[i];
+                loots[i].item = loots[i].GetComponent<Item>();
+                loot = loots[i];
+
+                return loot;
             }
         }
         return null;

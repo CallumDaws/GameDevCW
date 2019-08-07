@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         r = GetComponentInParent<Room>();
         templates = GameObject.FindGameObjectWithTag("Enemies").GetComponent<EnemyTemplates>();
         Invoke("Spawn", 0.1f);
-        rand = Random.Range(1, 2);
+        rand = Random.Range(1, 3);
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
                 case 2:
 
-                   Enemy e = Instantiate(templates.enemies[0], transform.position, Quaternion.identity);
+                   Enemy e = Instantiate(templates.enemies[1], transform.position, Quaternion.identity);
                     r.enemies.Add(e);
                     break;
 

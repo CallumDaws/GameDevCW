@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 
     public Item currentItem;
     public List<Item> items = new List<Item>();
+    public Player player;
     public int keys;
     public int coins;
     public int itemType;
@@ -14,7 +15,8 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(this.gameObject);
+        player = FindObjectOfType<Player>();
     }
 
     public bool HasItem(Item i)
@@ -36,6 +38,18 @@ public class Inventory : MonoBehaviour
 
     public void addItem(Item i)
     {
-        items.Add(i);
+        if (itemType == 1)
+        {
+            player.health += i.health;
+            player.speed += i.speed;
+            foreach (KnockBack k in player.GetComponents<KnockBack>())
+            {
+                k.damage += i.damage;
+            }
+        }
+        else
+        {
+            items.Add(i);
+        }
     }
 }

@@ -18,9 +18,11 @@ public class Enemy : MonoBehaviour
     public float speed;
     public Animator anima;
     public LootTable lootTable;
+    public GameObject doorway;
 
     public IEnumerator Dead()
     {
+        if (enemyName != "fakeBat")
         anima.SetBool("Dead", true);
         yield return new WaitForSeconds(0.5f);
         MakeLoot();
@@ -35,6 +37,10 @@ public class Enemy : MonoBehaviour
             if(current != null)
             {
                 Instantiate(current.item, transform.position, Quaternion.identity);
+            }
+            if(enemyName == "Boss")
+            {
+                Instantiate(doorway, transform.position, Quaternion.identity);
             }
         }
     }

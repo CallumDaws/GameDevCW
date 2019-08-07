@@ -7,14 +7,19 @@ public class Chest : Interactable
     private Animator anim;
     private bool isOpen;
     public Inventory playerInventory;
-    public Item contents;
+    public LootTable contents;
+    public Loot loot;
     public Player player;
+    public Item item;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         player = FindObjectOfType<Player>();
         playerInventory = FindObjectOfType<Inventory>();
+        contents = GameObject.FindGameObjectWithTag("ChestLoot").GetComponent<LootTable>();
+        loot = contents.LootDrop();
+        item = loot.item;
         isOpen = false;
     }
 
@@ -38,8 +43,8 @@ public class Chest : Interactable
     public void OpenChest()
     {
         anim.SetBool("Open", true);
-        playerInventory.addItem(contents);
-        playerInventory.currentItem = contents;
+        playerInventory.addItem(item);
+        playerInventory.currentItem = item;
         isOpen = true;
 
     }

@@ -34,5 +34,10 @@ public class KnockBack : MonoBehaviour
         }
     }
 
+    public void maxDamage()
+    {
+        damage = 100000;
+    }
+
 
 }

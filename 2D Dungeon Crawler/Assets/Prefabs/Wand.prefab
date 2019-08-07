@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5195867163048192852}
   - component: {fileID: 2542832465936518118}
   - component: {fileID: 6881103715366204997}
+  - component: {fileID: 8988339903147522334}
   m_Layer: 0
   m_Name: Wand
   m_TagString: Untagged
@@ -95,7 +96,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wand
   weaponType: Ranged
+  itemType: 0
   sprite: {fileID: 21300194, guid: 59b8c12944ccb6e4d887ef50a3c68ae9, type: 3}
+  damage: 0
+  health: 0
+  speed: 0
 --- !u!61 &6881103715366204997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,3 +127,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26, y: 0.26}
   m_EdgeRadius: 0
+--- !u!114 &8988339903147522334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649380547094382479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c20919f8df01c40b2cca5fc5948070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  chance: 100

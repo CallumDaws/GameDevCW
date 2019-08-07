@@ -6,7 +6,11 @@ public class Item : MonoBehaviour
 {   
     public string itemName;
     public string weaponType;
+    public int itemType;
     public Sprite sprite;
+    public int damage;
+    public int health;
+    public int speed;
     // Start is called before the first frame update
     void Start()
     {

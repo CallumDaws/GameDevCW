@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerState {
     idle,
@@ -12,7 +13,7 @@ public enum PlayerState {
 
 public class Player : MonoBehaviour
 {
-    float speed = 5;
+    public float speed = 5;
     private Rigidbody2D rigidbodys;
     public PlayerState currentState;
     private Vector3 change;
@@ -27,10 +28,16 @@ public class Player : MonoBehaviour
     public GameObject projectile;
     public FireBall fireBall;
     public Item wand;
+    public Vector3 originalPos;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
+        originalPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         currentState = PlayerState.walk;
        animator = gameObject.GetComponent<Animator>();
         rigidbodys = GetComponent<Rigidbody2D>();
@@ -50,11 +57,22 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             this.gameObject.SetActive(false);
+            SceneManager.LoadScene("Dead");
         }
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name != "Menu")
+        {
+            gameObject.transform.position = originalPos;
+        }
+    }
     void Update()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        cameraAnimator = FindObjectOfType<Camera>().GetComponent<Animator>();
+        playerInventory = FindObjectOfType<Inventory>();
         if (manaFloat < 100)
         {
             manaFloat = manaFloat += Time.deltaTime;
@@ -175,5 +193,9 @@ public class Player : MonoBehaviour
             rigidbodys.velocity = Vector2.zero;
                
             }
+    }
+    public void MaxHealth()
+    {
+        health = 10000000;
     }
 }
